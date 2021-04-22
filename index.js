@@ -1,15 +1,17 @@
-// no need to list the type of the parameter in the signature of the function
-function great(firstName, lastName) {
-    console.log('hello ' + firstName + ' ' + lastName);
-    console.log(`hello ${firstName} ${lastName}`); //template string - string literals work
-}
+// + - * / % are the same as expected
+// ** is special to the power of operator
+//  x ** y => x to the power of y
 
-// great('John', 'Ellison');
-// great('Leslie', 'Ward');
+let number = 10;
+console.log(number);  // 10
+console.log(number++); // 10
+console.log(number); // 11
+console.log(++number); //12
+console.log(number); // 12
 
 
-function square(number) {
-    return number * number;
-}
-// let number = square(2);
-console.log(square(2));
+console.log('start decrements');
+console.log(--number); // 11
+console.log(--number); // 10
+console.log(number--); // 10
+console.log(number); // 9
