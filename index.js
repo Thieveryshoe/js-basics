@@ -1,16 +1,9 @@
-// reference type => object
-let person1 = {
-    name: 'john',
-    age: 36
-};
-console.log(person1);
-// dot notation
-console.log(person1.name);
+let selectedColors = ['red', 'blue'];
+console.log(selectedColors);
+console.log('The 0 index is: ' + selectedColors[0]);
+console.log('The 1 index is: ' + selectedColors[1]);
+console.log(typeof selectedColors);
 
-// bracket notation => can be used at run time
-let person2 = {
-    name: 'Leslie',
-    age: 33
-};
-console.log(person2['name']);
-console.log(person2['age']);
+// arrays, like variables, are dynamic.  
+// the length can vary and the type stored, AT EACH INDEX
+// can change.
