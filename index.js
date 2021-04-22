@@ -1,9 +1,8 @@
-let selectedColors = ['red', 'blue'];
-console.log(selectedColors);
-console.log('The 0 index is: ' + selectedColors[0]);
-console.log('The 1 index is: ' + selectedColors[1]);
-console.log(typeof selectedColors);
+// no need to list the type of the parameter in the signature of the function
+function great(firstName, lastName) {
+    console.log('hello ' + firstName + ' ' + lastName);
+    console.log(`hello ${firstName} ${lastName}`); //template string - string literals work
+}
 
-// arrays, like variables, are dynamic.  
-// the length can vary and the type stored, AT EACH INDEX
-// can change.
+great('John', 'Ellison');
+great('Leslie', 'Ward');
