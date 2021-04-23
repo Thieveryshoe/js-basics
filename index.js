@@ -1,10 +1,20 @@
-let a = 'red';
-let b = 'blue';
-let cache = a;
-a = b;
-b = cache;
+let hour = 10;
+console.log(getGreeting(hour)); // Good morning
+hour = 15;
+console.log(getGreeting(hour)); // Good afternoon
+hour = 22;
+console.log(getGreeting(hour)); // Good evening
 
-console.log(a); // red => blue
-console.log(b); // blue => red
-
-// write code to swap the color values
+function getGreeting(hour) {
+    if (hour > 6 && hour < 12) {
+        return 'Good morning';
+    }
+    // else if (hour > 12 && hour < 18) {
+    //     return 'Good afternoon';
+    // }
+    // brackets for multi line code blocs
+    else if (hour > 12 && hour < 18)
+        return 'Good afternoon';
+    else
+        return 'Good evening'
+}
