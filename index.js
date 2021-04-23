@@ -1,31 +1,13 @@
-// for-in loops
-// use for in to iterate over propeties of an object
-let person = {
-    name: 'John',
-    age: 36
-};
+// exercise 1:
+// write function that has two numbers and returns the argument with greater value
 
-for (let prop in person) {
-    // console.log(prop);  //print the property label
-    console.log(prop, person[prop]); // print the property value, have to use bracket notation
+let num1 = 1;
+let num2 = 2;
+console.log(getMaxValue(num1, num2)); // 2
+
+num1 = 5;
+console.log(getMaxValue(num1, num2)); // 5
+
+function getMaxValue(num1, num2) {
+    return num1 > num2 ? num1 : num2;
 }
-
-console.log('begin colors');
-
-const colors = ['red', 'green', 'blue'];
-for (let index in colors) {
-    console.log(index); // prints current value of index in the array
-    console.log(colors[index]); // prints current value of the index
-}
-
-// for-of lop => for-each
-console.log('begin for-of');
-const shapes = ['triangle', 'square', 'circle'];
-for (let c of shapes) {
-    console.log(c);
-}
-
-// 
-console.log('begin extension method');
-shapes.forEach(x => console.log(x));
-// use for of to iterate over items in an array
