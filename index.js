@@ -1,13 +1,15 @@
-// exercise 1:
-// write function that has two numbers and returns the argument with greater value
+// exercise 2:
+// implement isLandscape(width, height)
+// returns true if width > height, else false
 
-let num1 = 1;
-let num2 = 2;
-console.log(getMaxValue(num1, num2)); // 2
+let width = 10;
+let height = 5;
 
-num1 = 5;
-console.log(getMaxValue(num1, num2)); // 5
+console.log(isLandscape(width, height)); // true
 
-function getMaxValue(num1, num2) {
-    return num1 > num2 ? num1 : num2;
+height = 24;
+console.log(isLandscape(width, height)); // false
+
+function isLandscape(width, height) {
+    return width > height;
 }
