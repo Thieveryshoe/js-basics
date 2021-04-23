@@ -1,15 +1,40 @@
-// exercise 2:
-// implement isLandscape(width, height)
-// returns true if width > height, else false
+// fizzBuzz
+// if argument is divisible by 3 => fizz
+// if argument is divisible by 5 => buzz
+// if argument is divisible by 3 && 5 => fizzbuzz
+// if argument is not divisible by 3 || 5 => argument
+// if argument is not a number => 'not a number'
 
-let width = 10;
-let height = 5;
+console.log(fizzBuzz(3)); // fizz
+console.log(fizzBuzz(5)); // buzz
+console.log(fizzBuzz(15)); // fizzbuzz
+console.log(fizzBuzz(7)); // 7 
+console.log(fizzBuzz('sadf')); // not a number
 
-console.log(isLandscape(width, height)); // true
+function fizzBuzz(num) {
+    if (typeof(num) !== 'number') {
+        return NaN;
+    }
 
-height = 24;
-console.log(isLandscape(width, height)); // false
+    let divByThree = false;
+    let divByFive = false;
 
-function isLandscape(width, height) {
-    return width > height;
+    if (num % 3 === 0) {
+        divByThree = true;
+    }
+
+    if (num % 5 === 0) {
+        divByFive = true;
+    }
+
+    if (divByThree && !divByFive) {
+        return 'fizz';
+    }
+    if (!divByThree && divByFive) {
+        return 'buzz';
+    }
+    if (divByThree && divByFive) {
+        return 'fizzbuzz'
+    }
+    return num;
 }
