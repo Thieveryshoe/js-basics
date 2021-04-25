@@ -1,14 +1,16 @@
 // OOP style.  Basics are as expected.
-const circle = {
-    radisu: 1,
-    location: {
-        x: 1,
-        y: 1
-    },
-    isVisible: true,
-    draw: function() {
-        console.log('draw');
-    }
-};
 
-circle.draw();
+// Factory function
+function createCircle(radius) {
+    return {
+        radius, // if key and value are the same, can remove the value. radius: radius => radius
+        draw() { // can drop the function keyword in the signature
+            console.log('draw');
+        }
+    };
+}
+
+const circle1 = createCircle(1);
+console.log(circle1);
+const circle2 = createCircle(13);
+console.log(circle2);
