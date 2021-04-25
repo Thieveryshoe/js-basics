@@ -14,3 +14,18 @@ const circle1 = createCircle(1);
 console.log(circle1);
 const circle2 = createCircle(13);
 console.log(circle2);
+
+console.log('begin constructor functions');
+// constructor functions
+// pascal case for constructor functions
+
+function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+        console.log('draw using constructor function');
+    }
+}
+
+const circle = new Circle(34);
+console.log(circle);
+circle.draw();
