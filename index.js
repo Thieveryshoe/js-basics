@@ -1,11 +1,5 @@
-let post = new Post('a', 'b', 'c');
-console.log(post);
-
-function Post(title, body, author) {
-    this.title = title;
-    this.body = body;
-    this.author = author;
-    this.views = 0;
-    this.comments = [];
-    this.isLive = false;
-}
+let priceRanges = [
+    { label: '$', toolTip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10},
+    { label: '$$', toolTip: 'Moderate', minPerPerson: 10, maxPerPerson: 20},
+    { label: '$$$', toolTip: 'Expensive', minPerPerson: 30, maxPerPerson: 50},
+]
