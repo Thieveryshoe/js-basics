@@ -1,96 +1,22 @@
-// every object has a constrcutor property which references
-// the function that was used to create that object
-
-// Factory function
-function createCircle(radius) {
-    return {
-        radius,
-        draw() {
-            console.log('draw factory function');
-        }
-    };
-}
-const circle1 = createCircle(1);
-
-// from the firefox console:
-/*
-circle1.constructor
-function Object()
-​
-assign: function assign()
-​
-create: function create()
-​
-defineProperties: function defineProperties()
-​
-defineProperty: function defineProperty()
-​
-entries: function entries()
-​
-freeze: function freeze()
-​
-fromEntries: function fromEntries()
-​
-getOwnPropertyDescriptor: function getOwnPropertyDescriptor()
-​
-getOwnPropertyDescriptors: function getOwnPropertyDescriptors()
-​
-getOwnPropertyNames: function getOwnPropertyNames()
-​
-getOwnPropertySymbols: function getOwnPropertySymbols()
-​
-getPrototypeOf: function getPrototypeOf()
-​
-is: function is()
-​
-isExtensible: function isExtensible()
-​
-isFrozen: function isFrozen()
-​
-isSealed: function isSealed()
-​
-keys: function keys()
-​
-length: 1
-​
-name: "Object"
-​
-preventExtensions: function preventExtensions()
-​
-prototype: Object { … }
-​
-seal: function seal()
-​
-setPrototypeOf: function setPrototypeOf()
-​
-values: function values()
-​
-<prototype>: function ()
-*/
-
-// constructor function
-function Circle(radius) {
-    this.radius = radius;
-    this.draw = function() {
-        console.log('draw using constructor function');
+const circle = {
+    radius: 1,
+    draw() {
+        console.log('draw');
     }
-}
-const circle2 = new Circle(34);
+};
 
-// from the firefox console:
-/*
-circle2.constructor
-function Circle(radius)
-​
-arguments: null
-​
-caller: null
-​
-length: 1
-​
-name: "Circle"
-​
-prototype: Object { … }
-​
-<prototype>: function ()
-*/
+for (let key in circle) {
+    console.log(key, circle[key]);
+};
+
+for (let key of Object.keys(circle)) {
+    console.log(key);
+};
+
+for (let entry of Object.entries(circle)) {
+    console.log(entry);
+}
+
+if ('radius' in circle) console.log('radius is in');
+if (Object.keys(circle).includes('radius')) console.log('radius is included');
+if (!Object.keys(circle).includes('color')) console.log('color is not included');
