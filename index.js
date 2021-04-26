@@ -1,17 +1,11 @@
-const blogPost = {
-    title: 'test title',
-    body: 'test body',
-    author: 'test authod',
-    views: 0,
-    isLive: false,
-    comments: [
-        {
-            author: 'test commentor',
-            body: 'test comment body'
-        },
-        {
-            author: '2',
-            body: '2 body'
-        }
-    ]
-};
+let post = new Post('a', 'b', 'c');
+console.log(post);
+
+function Post(title, body, author) {
+    this.title = title;
+    this.body = body;
+    this.author = author;
+    this.views = 0;
+    this.comments = [];
+    this.isLive = false;
+}
