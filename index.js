@@ -1,30 +1,16 @@
-let numbers = createArray();
-console.log('orignal numbers: ', numbers);
+const first = [1,2,3];
+const second = [4,5,6];
 
-// solution 1
-numbers = [];
-console.log(numbers);
+const combined = [...first, ...second];
+console.log('combined', combined);
+const combined2 = first.concat(second)
+console.log('combined2', combined2);
 
-// solution 2 => this is probably the one that will be safest
-numbers = createArray();
-console.log('orignal numbers: ', numbers);
-numbers.length = 0;
-console.log(numbers);
+const combined3 = [...first, ...second, 'b'];
+console.log('combined3', combined3);
 
-//solution 3
-numbers = createArray();
-console.log('orignal numbers: ', numbers);
-numbers.splice(0, numbers.length);
-console.log(numbers);
+const copy = combined3.slice();
+console.log('copy1', copy);
 
-// solution 4 => this is dumb but works
-numbers = createArray();
-console.log('orignal numbers: ', numbers);
-while (numbers.length > 0) {
-    numbers.pop();
-}
-console.log(numbers);
-
-function createArray() {
-    return [1,2,3,4,5];
-}
+const copy2 = [...combined3];
+console.log('copy2', copy2);
