@@ -1,15 +1,30 @@
-const numbers = [1,2,3,4,5]
+let numbers = createArray();
+console.log('orignal numbers: ', numbers);
 
+// solution 1
+numbers = [];
 console.log(numbers);
-// remove from end
-let last = numbers.pop();
-console.log(last);
+
+// solution 2 => this is probably the one that will be safest
+numbers = createArray();
+console.log('orignal numbers: ', numbers);
+numbers.length = 0;
 console.log(numbers);
-// remove from beginning
-let first = numbers.shift()
-console.log(first);
+
+//solution 3
+numbers = createArray();
+console.log('orignal numbers: ', numbers);
+numbers.splice(0, numbers.length);
 console.log(numbers);
-// remove from middle
-let middle = numbers.splice(1, 1);
-console.log(middle);
+
+// solution 4 => this is dumb but works
+numbers = createArray();
+console.log('orignal numbers: ', numbers);
+while (numbers.length > 0) {
+    numbers.pop();
+}
 console.log(numbers);
+
+function createArray() {
+    return [1,2,3,4,5];
+}
