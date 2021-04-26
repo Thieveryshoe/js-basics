@@ -15,7 +15,7 @@ const jog = function jog() {
 
 let move = run;
 
-walk();
-run();
-jog();
-move();
+walk(); // walk
+run(); // run
+jog(); // jog
+move(); // run
