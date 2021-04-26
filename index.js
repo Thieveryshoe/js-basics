@@ -1,12 +1,11 @@
 const numbers = [1, -2, 2, 3];
-const positiveNumbers = numbers.filter(x => x >= 0);
-console.log(positiveNumbers);
+const items = numbers
+    .filter(x => x >= 0)
+    .map(n => '<li>' + n + '</li>');
+console.log(items);
 
-const stores = [
-    { Id: 1, isOpen: true},
-    { Id: 1, isOpen: false}
-];
-console.log('all stores', stores);
-const openStores = stores.filter(x => x.isOpen === true);
-console.log('open stores', openStores);
+const html = '<ul>' + items.join('') + '</ul>';
+console.log(html);
 
+const objMap = numbers.map(n => ({ id: n, idPlus: n + 1 }));
+console.log(objMap);
