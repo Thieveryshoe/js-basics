@@ -1,11 +1,13 @@
-// primitives
-const numbers = [2,3,1];
-console.log('unsorted', numbers);
-let sorted = numbers.sort();
-console.log('sorted', sorted);
-let reversed = sorted.reverse();
-console.log('reversed', reversed);
+const numbers = [1,2,3];
 
-// object references
-// you have to do more work to do this.
-// look it up when the time comes.
+const allPositive = numbers.every(x => x >= 0);
+console.log(allPositive);
+
+const numbers2 = [1,-2,3];
+
+const allPositive2 = numbers2.every(x => x >= 0);
+console.log(allPositive2);
+
+const numbers3 = [1, -2, 2, 3];
+const atLeastOneNegative = numbers3.some(x => x < 0);
+console.log(atLeastOneNegative);
