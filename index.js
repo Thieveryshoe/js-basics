@@ -1,18 +1,21 @@
-const movies = [
-    { title: 'a', year: 2018, rating: 4.5 },
-    { title: 'b', year: 2018, rating: 4.7 },
-    { title: 'c', year: 2018, rating: 3 },
-    { title: 'd', year: 2017, rating: 4.5 },
-];
+// function declaration
+function walk() {
+    console.log('walk');
+}
 
-// return all movies from 2018 with rating > 4
-// sort by rating in desc order
-// then display only the title on the console
+// anonymous function expression
+const run = function() {
+    console.log('run');
+};
 
-const filtered = movies
-    .filter(m => m.year === 2018 && m.rating > 4)
-    .sort((a, b) => a.rating - b.rating)
-    .reverse()
-    .map(m => m.title);
+// named function expression
+const jog = function jog() {
+    console.log('jog');
+};
 
-console.log(filtered);
+let move = run;
+
+walk();
+run();
+jog();
+move();
