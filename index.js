@@ -4,19 +4,15 @@ const circle = {
         console.log('draw');
     }
 };
+console.log('circle is: ', circle);
 
-for (let key in circle) {
-    console.log(key, circle[key]);
-};
+// const another = {}; // this method is old, don't use
+// for (let key in circle)
+//     another[key] = circle[key];
 
-for (let key of Object.keys(circle)) {
-    console.log(key);
-};
+// const another = Object.assign({}, circle); // {} represents empty object, but still older way of cloning
 
-for (let entry of Object.entries(circle)) {
-    console.log(entry);
-}
+const another = { ...circle }; // ... => spread operator
 
-if ('radius' in circle) console.log('radius is in');
-if (Object.keys(circle).includes('radius')) console.log('radius is included');
-if (!Object.keys(circle).includes('color')) console.log('color is not included');
+console.log('another is: ', another);
+
