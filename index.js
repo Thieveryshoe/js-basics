@@ -6,14 +6,10 @@ const courses = [
 
 console.log(courses.includes({ id: 1, name: 'a'})); // False
 
-let found = courses.find(function(course) {
-    return course.name === 'a';
-});
+let found = courses.find(c => c.name === 'a');
 
 console.log(found); // logs the object
 
-let found2 = courses.findIndex(function(course) {
-    return course.name === 'a';
-});
+let found2 = courses.findIndex(c => c.name === 'a');
 
 console.log(found2); // 0
