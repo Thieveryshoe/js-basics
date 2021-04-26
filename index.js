@@ -1,11 +1,19 @@
-// finding primitives
-const numbers = [1, 2, 3, 4];
-// find 2
-console.log(numbers.indexOf(2)); // 1
-// find 6
-console.log(numbers.indexOf(6)); // -1 => does not exist
-// find last index of 1
-numbers.push(1);
-console.log(numbers.lastIndexOf(1)); // 4
-// does number include argument?
-console.log(numbers.includes(4)); // true
+// finding reference types
+const courses = [
+    { id: 1, name: 'a'},
+    { id: 2, name: 'b'}
+];
+
+console.log(courses.includes({ id: 1, name: 'a'})); // False
+
+let found = courses.find(function(course) {
+    return course.name === 'a';
+});
+
+console.log(found); // logs the object
+
+let found2 = courses.findIndex(function(course) {
+    return course.name === 'a';
+});
+
+console.log(found2); // 0
