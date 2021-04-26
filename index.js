@@ -1,11 +1,12 @@
-const numbers = [1, -2, 2, 3];
-const items = numbers
-    .filter(x => x >= 0)
-    .map(n => '<li>' + n + '</li>');
-console.log(items);
+const numbers = [1, -1, 2, 3];
 
-const html = '<ul>' + items.join('') + '</ul>';
-console.log(html);
+let sum = 0;
 
-const objMap = numbers.map(n => ({ id: n, idPlus: n + 1 }));
-console.log(objMap);
+numbers.forEach(n => sum += n);
+console.log(sum);
+
+
+let reduced = numbers.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+}, 0);
+console.log(reduced);
