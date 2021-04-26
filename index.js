@@ -1,5 +1,11 @@
-let priceRanges = [
-    { label: '$', toolTip: 'Inexpensive', minPerPerson: 0, maxPerPerson: 10},
-    { label: '$$', toolTip: 'Moderate', minPerPerson: 10, maxPerPerson: 20},
-    { label: '$$$', toolTip: 'Expensive', minPerPerson: 30, maxPerPerson: 50},
-]
+const numbers = [3, 4];
+console.log(numbers);
+// add to end
+numbers.push(5, 6);
+console.log(numbers);
+// add to beginning
+numbers.unshift(1, 2);
+console.log(numbers);
+// add to middle
+numbers.splice(2, 0, 2.5);
+console.log(numbers);
