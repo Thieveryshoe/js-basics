@@ -1,14 +1,18 @@
-const address = {
-    street: 'Odell',
-    city: 'St. Louis',
-    zipCode: '63139'
-};
+// Factory function
+function createAddress(street, city, zipCode) {
+    return {
+        street,
+        city,
+        zipCode
+    };
+}
+console.log(createAddress('1', '2', '3'));
 
-
-function showAddress(address) {
-    for (let key in address) {
-        console.log(`${key} is ${address[key]}`);
-    }
+// Constructor function
+function Address(street, city, zipCode) {
+    this.street = street;
+    this.city = city,
+    this.zipCode = zipCode;
 }
 
-showAddress(address);
+console.log(new Address('a', 'b', 'c'));
