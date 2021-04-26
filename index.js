@@ -1,23 +1,17 @@
-// js is a dynamic languate
-
-function sum(a, b) {
-    return a + b;
+// when we apply the rest operator to a parameter of a function
+// we can pass varying number of arguments and put them into an array
+// rest parameter must be the last formal parameter.
+// funciton sum(discount, ...args, soemthingElse) => won't work
+function sum(...args) {
+    return args.reduce((a, b) => a + b);
 }
+console.log('sum:');
+console.log(sum(1,2,3,4,5,6));
 
-console.log(sum(1, 2)); // 3
-console.log(sum(1)); // NaN
-console.log(sum()); // NaN
-console.log(sum('foo', 'Fighters')); //fooFighters
-console.log(sum(1, 'Two')); //1Two
-console.log(sum(1, 2, 3, 4)); // 3
-
-// every function has a special property called arguments
-function times() {
-    total = 1;
-    Array.from(arguments).forEach(a => total *= a);
-    return total;
+function getTotal(discount, ...prices) {
+    let total = 0;
+    prices.forEach(p => total += p);
+    return total * (1 - discount);
 }
-console.log('begin times:');
-console.log(times(2)); // 2
-console.log(times(1, 2, 3)); // 6
-console.log(times(10, 44, 9, 0)); // 0
+console.log('getTotal');
+console.log(getTotal(.1, 100, 50));
