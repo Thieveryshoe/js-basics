@@ -1,21 +1,33 @@
-// default  paramets
-// function interest(principal, rate, years) {
-//     return principal * rate / 100 * years;
-// }
-// what if we want default values for interest rate and years
+// const person = {
+//     firstName: 'John',
+//     lastName: 'Ellison',
+//     fullName() {
+//         return `${person.firstName} ${person.lastName}`;
+//     }
+// };
 
-function interest(principal, rate, years) {
-    rate = rate || 3.5; // if rate is truthy, use that, else 3.5
-    years = years || 5;   // if years is truthy, use that, else 30
-    return principal * rate / 100 * years;
-}
+// console.log('called using string literal:',`${person.firstName} ${person.lastName}`); // kind of a long winded to do 
+// console.log('called with fullName method:', person.fullName()); // read only, cannot set the full name form the outside
 
-console.log('given all params', interest(10000, 3.5, 5));
-console.log('given only amount', interest(10000));
+// getters => access properties
+// setters => change (mutate) properties
 
-// can write in even more modern way
-function calculateInterest(principal, rate = 3.5, years = 5) {
-    return principal * rate / 100 * years;
-}
-console.log('calculateInterest with all pararms', calculateInterest(10000, 3.5, 5));
-console.log('calculateInterest with only amount param', calculateInterest(10000));
+const person = {
+    firstName: 'John',
+    lastName: 'Ellison',
+    get fullName() {
+        return `${person.firstName} ${person.lastName}`;
+    },
+    set fullName(fullName) {
+        const parts = fullName.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
+};
+
+console.log('called with fullName method:', person.fullName); // can access like a property now => no ()
+
+// but what if we want to do something like
+person.fullName = 'Big Pun'; // have to create the setter
+console.log('name has been mutated with a setter:', person.fullName); // Big Pun
+console.log(person);
