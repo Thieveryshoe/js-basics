@@ -1,17 +1,3 @@
-// const person = {
-//     firstName: 'John',
-//     lastName: 'Ellison',
-//     fullName() {
-//         return `${person.firstName} ${person.lastName}`;
-//     }
-// };
-
-// console.log('called using string literal:',`${person.firstName} ${person.lastName}`); // kind of a long winded to do 
-// console.log('called with fullName method:', person.fullName()); // read only, cannot set the full name form the outside
-
-// getters => access properties
-// setters => change (mutate) properties
-
 const person = {
     firstName: 'John',
     lastName: 'Ellison',
@@ -19,15 +5,21 @@ const person = {
         return `${person.firstName} ${person.lastName}`;
     },
     set fullName(fullName) {
+        // if (typeof fullName !== 'string') return; // this is one way to be defensive
+        if (typeof fullName !== 'string')
+            throw new Error('Value is not a string.');
         const parts = fullName.split(' ');
+        if (parts.length !== 2)
+            throw new Error('Enter only first and last name.')
         this.firstName = parts[0];
         this.lastName = parts[1];
     }
 };
 
-console.log('called with fullName method:', person.fullName); // can access like a property now => no ()
-
-// but what if we want to do something like
-person.fullName = 'Big Pun'; // have to create the setter
-console.log('name has been mutated with a setter:', person.fullName); // Big Pun
-console.log(person);
+try {
+    // person.fullName = null;
+    person.fullName = 'John sdf dfljd';
+} catch (e) {
+    alert(e);
+}
+// console.log(person); // fullName is null error
