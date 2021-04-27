@@ -1,39 +1,53 @@
-// what is this?
-// this is the object that is executing the current function
+// const video = {
+//     title: 'Video Title',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         this.tags.forEach(function (tag) {
+//             console.log(this.title, tag);
+//         }, this);
+//     }
+// }
 
-// method (a function that is part of an object) => this represents that object
-// function (function not part of an object) => this represents the global object (window in browser, global in node)
+// video.showTags();
 
+// this isn't a good approach, but it's out there and exists
+// const album = {
+//     title: 'Album Title',
+//     tags: ['a', 'b', 'c'],
+//     showTags() {
+//         const self = this; // sometimes self == that, personal preference
+//         this.tags.forEach(function (tag) {
+//             console.log(self.title, tag);
+//         });
+//     }
+// }
+// album.showTags();
+
+// remember, functions are objects
+function playVideo(a, b) {
+    console.log(this);
+}
+
+playVideo.call({ name: 'call - John'}, 1, 2); // set this with the called object and call function
+playVideo.apply({ name: 'apply - John'}, [1, 2]); // set this with the called object and call function
+const fn = playVideo.bind({ name: 'bind - John'}, 1, 2);
+fn();
+playVideo(); // window
+
+// there is a newer solution than this in ES6 
 const video = {
-    title: 'a',
-    play() {
-        console.log(this);
+    title: 'Video Title',
+    tags: ['a', 'b', 'c'],
+    showTags() {
+        this.tags.forEach(function (tag) {
+            console.log(this.title, tag);
+        }.bind(this));
     }
-};
-
-video.stop = function() {
-    console.log(this);
-};
-
-// both will log the video obj, the method concept of this
-video.play();
-video.stop();
-
-function playVideo() {
-    console.log(this);
 }
 
-// will log the window obj, the global concept of this
-playVideo();
+video.showTags();
 
-function GetVideo(title) {
-    this.title = title;
-    console.log(this);
-}
-
-// will be using the method concept as the js engine creates a new {} when using new keyword
-const v = new GetVideo('b');
-
+// arrow functions inherit the this value
 const album = {
     title: 'Ten',
     tags: ['alternative', '90s', 'grunge'],
